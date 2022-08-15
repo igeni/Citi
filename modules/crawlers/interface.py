@@ -1,8 +1,8 @@
 from abc import ABCMeta, abstractmethod
+import re
 
 from modules.transport.transport import TransportLayer
 
-import re
 
 class CrawlerInterface(metaclass=ABCMeta):
     """
@@ -16,7 +16,7 @@ class CrawlerInterface(metaclass=ABCMeta):
     need_proxy = False
     need_change_header = False
 
-    def __init__(self, db_file=''):
+    def __init__(self):
         self.transport = TransportLayer([])
 
     @abstractmethod
@@ -69,7 +69,7 @@ class CrawlerInterface(metaclass=ABCMeta):
         except Exception as e:
             pass
 
-        val = re.search('\s([A-Z]{3})\s', values)
+        val = re.search('([A-Z]+)', values)
         ticker = 'NONE'
         try:
             ticker = val.group(0).strip()
