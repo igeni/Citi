@@ -10,6 +10,8 @@ class Config:
     """
     base config class
     """
+    pass
+
     def __init__(self, filename:str='../../settings.cfg'):
         self.configfile = filename
         self.config = configparser.ConfigParser()

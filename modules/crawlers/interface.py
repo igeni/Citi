@@ -115,7 +115,7 @@ class CrawlerInterface(metaclass=ABCMeta):
 
 
 
-        print(amount, ticker, years)
+        return f'{amount} {ticker} {years}'
 
 
 

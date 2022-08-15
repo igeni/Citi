@@ -14,29 +14,10 @@ class S3Crawler(CrawlerInterface):
     def set_source(self, source:str):
         self.source = source
 
-    # source = 'https://s3.amazonaws.com/aie.interview/input.csv)'
-    # task_prefix = 'https://pastebin.com'
-    # ScanNewTasksInterval = 0
-
-    # alive_status_url = ''
-
-    # @staticmethod
-    # def get_from_tree(tree, val:str, default_val='Unknown') -> str:
-    #     raw_res = tree.xpath(val)
-    #     return str(raw_res[0]) if len(raw_res) > 0 else default_val
 
     def get_new_tasks(self):
         page = self.transport.get(self.source)
 
-        # tree = html.fromstring(page.content)
-        #
-        # main_table_urls = tree.xpath('//table[@class="maintable"]//tr/td//span/parent::node()/a/@href')
-        #
-        # res = []
-        # for link in main_table_urls:
-        #     res.append(link)
-
-        # return page
         if page.status_code == 200:
             self.data = page.text
         else:
@@ -47,13 +28,12 @@ class S3Crawler(CrawlerInterface):
             pass
             self.get_new_tasks()
 
-            # print(self.data)
-            # print('sfg sjhjk f')
             res = self.data.split('\n')
 
             if res[0] == 'message\r':
                 for line in res[1:]:
-                    self.analyse_line(line)
+                    result = self.analyse_line(line)
+                    print(result)
             else:
                 exit('Data source is not valid')
 
