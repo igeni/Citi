@@ -6,5 +6,4 @@ crawler = Crawler(crawler_type=CrawlerType.S3)
 
 
 if __name__ == "__main__":
-    # print('starting...')
     crawler.start()

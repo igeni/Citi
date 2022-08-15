@@ -25,6 +25,9 @@ def test_crawler():
     res = crawler.crawler.analyse_line('Please put us in for 5MM CAT 5 years?')
     assert res == '5000000 CAT 5yr'
 
+    res = crawler.crawler.analyse_line('Please put us in for 5MM CAT 5 years?')
+    assert res == '5000000 CAT 5yr'
+
     res = crawler.crawler.analyse_line('Please put us in for 5000008a CAT 5 years?')
     assert res == '0 CAT 5yr'
 

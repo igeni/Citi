@@ -6,7 +6,7 @@ import requests
 import time
 from typing import List
 
-from modules.exceptions import TransportError, SendAliveError, NoProxiesError
+from modules.exceptions import TransportError
 
 
 Seconds = int
@@ -51,14 +51,6 @@ class TransportLayer:
                 time.sleep(int(interval))
 
             proxy = None
-            if need_proxy:
-                if not self.proxies:
-                    raise NoProxiesError("you have to set proxies")
-                self.proxy_counter = (self.proxy_counter + 1) % len(self.proxies)
-                proxy = {'http': f'http://{self.proxies[self.proxy_counter]}'}
-
-            if need_change_header:
-                self.headers_counter = (self.headers_counter + 1) % len(self.headers)
             header = self.headers[self.headers_counter]
 
             # TODO for production purposes we need not to use RoundRobin with weights for proxies because unstable connection
