@@ -13,8 +13,8 @@ def test_crawler():
     with pytest.raises(Exception) as e_info:
         _ = Crawler()
 
-    # with pytest.raises(Exception) as e_info:
-    #     _ = Crawler(crawler_type=CrawlerType.UNKNOWN)
+    with pytest.raises(Exception) as e_info:
+        _ = Crawler(crawler_type=CrawlerType.UNKNOWN)
 
     crawler = Crawler(crawler_type=CrawlerType.S3)
     assert crawler.crawler.name == 'S3'
@@ -28,6 +28,7 @@ def test_crawler():
 
     res = crawler.crawler.analyse_line('Please put us in for 5000008a CAT 5yr?')
     assert res == '0 CAT 5yr'
+
 
 
 
