@@ -37,8 +37,8 @@ class CrawlerInterface(metaclass=ABCMeta):
     def get_result(self):
         raise NotImplementedError
 
-
-    def analyse_line(self, line:str):
+    @staticmethod
+    def analyse_line(line:str):
         typeOp = 'BUY'
         values = ''
 

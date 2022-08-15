@@ -1,4 +1,4 @@
-from .pastebin_com import S3Crawler
+from .s3_crawler import S3Crawler
 from modules.common import CrawlerType
 from modules.exceptions import WrongCrawlerTypeError
 

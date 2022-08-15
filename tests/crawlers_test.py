@@ -5,7 +5,7 @@
 import pytest
 
 from modules.crawlers.crawler import Crawler
-from modules.crawlers.pastebin_com import S3Crawler
+from modules.crawlers.s3_crawler import S3Crawler
 from modules.common import CrawlerType
 
 
