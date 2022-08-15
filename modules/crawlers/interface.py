@@ -88,8 +88,6 @@ class CrawlerInterface(metaclass=ABCMeta):
         values = values.replace(' years', 'yr')
         values = values[:-1]
 
-        # print(f'>{values}<')
-
         val = re.search('\s\d+\s', values)
         amount = 0
         try:
@@ -111,8 +109,6 @@ class CrawlerInterface(metaclass=ABCMeta):
             ticker = val.group(0)
         except Exception as e:
             pass
-
-
 
 
         return f'{amount} {ticker} {years}'
