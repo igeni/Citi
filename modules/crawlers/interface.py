@@ -6,7 +6,7 @@ import re
 
 class CrawlerInterface(metaclass=ABCMeta):
     """
-    storage interface class
+    crawler interface class
     """
     name = ''
 
