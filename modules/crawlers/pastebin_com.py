@@ -1,10 +1,4 @@
-# import sched, time
-#
-# import arrow
-# from lxml import html
-
 from .interface import CrawlerInterface
-# from modules.common import DataStructure as DataStruct
 
 
 class S3Crawler(CrawlerInterface):
